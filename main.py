@@ -57,17 +57,17 @@ def chooser():
     3 . Show By Id \t 4 . Delet By Id \n
     5 . Total Sell \t 6 . Exite \n""")
     choose=input("please enter your choose : ")
-    if choose == 1:
+    if choose == "1":
         menu().one()
-    elif choose == 2:
+    elif choose == "2":
         menu().two()
-    elif choose == 3:
+    elif choose == "3":
         menu().three()
-    elif choose == 4:
+    elif choose == "4":
         menu().four()
-    elif choose == 5:
+    elif choose == "5":
         menu().five()
-    elif choose == 6:
+    elif choose == "6":
         menu().six()
     else:
         print("your choose invalid")
