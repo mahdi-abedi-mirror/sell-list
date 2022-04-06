@@ -31,7 +31,10 @@ class menu(object):
 
         cur.execute("SELECT id FROM orders")
         last_id=cur.fetchall()
-        print(" Last registered ID = ",last_id[-1])
+        try:
+            print(" Last registered ID = ",last_id[-1])
+        except:
+            print("id = 0 ! id is a first id ")
         Id=input("Please Enter Id for new order : ")
         fname=input("Please Enter First Name Customer : ")
         lname=input("Please Enter Last Name Customer : ")
