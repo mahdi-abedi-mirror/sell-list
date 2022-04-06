@@ -31,7 +31,7 @@ class menu(object):
 
         cur.execute("SELECT id FROM orders")
         last_id=cur.fetchall()
-        print(" Last registered ID = ",last_id)
+        print(" Last registered ID = ",last_id[-1])
         Id=input("Please Enter Id for new order : ")
         fname=input("Please Enter First Name Customer : ")
         lname=input("Please Enter Last Name Customer : ")
@@ -40,7 +40,6 @@ class menu(object):
         data_for_db=(Id,fname,lname,date_sell,total)
         cur.execute("INSERT INTO orders VALUES(?,?,?,?,?)",data_for_db)
         con.commit()
-        con.close()
 
     def two(self):
         
@@ -64,7 +63,16 @@ class menu(object):
         print("Deleted!!!")
 
     def five(self):
-        pass
+        total_list=[]
+        total_answer=0
+        cur.execute("SELECT total FROM orders")
+        rows = cur.fetchall()
+        for row in rows:
+            total_list.append(row[0])
+        for i in range(len(total_list)):
+            total_answer += total_list[i]
+        print("your total sell = %i"%total_answer)
+
     def six(self):
         print("*"*10,"GoodBy","*"*10)
 
