@@ -77,7 +77,14 @@ class menu(object):
         print("your total sell = %i"%total_answer)
 
     def six(self):
-        print("*"*10,"GoodBy","*"*10)
+        fname_search = input("Please Enter first name : ")
+        try:
+            cur.execute("SELECT * FROM orders WHERE fname = %s"%fname_search)
+        except:
+            print("no result !!! please enter name in 'name' '' ")
+        search_re = cur.fetchall()
+        for row in search_re:
+            print(row)
 
 
 def chooser():
@@ -87,7 +94,7 @@ def chooser():
     print(""" 
     1 . Add Order \t 2 . Show All Orders \n 
     3 . Show By Id \t 4 . Delet By Id \n
-    5 . Total Sell \t 6 . Exite \n""")
+    5 . Total Sell \t 6 . Search By First Name \n""")
     choose=input("please enter your choose : ")
     if choose == "1":
         menu().one()
